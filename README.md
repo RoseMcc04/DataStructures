@@ -4,6 +4,9 @@ I have created this repository to allow me to practice data structures and algor
 
 ## Java
 
+I hope to make my own generic implementations of data structures (mostly linear) in Java to demonstrate
+my comprehension of how they work and how they can be used. 
+
 The first step is to go into /home/Documents in your directory. 
 ```shell
 cd ~/Documents/
@@ -19,6 +22,9 @@ java <file-name>
 
 ## Python
 
+I hope to use Python in this repository to learn the object-oriented paradigm in a language that
+often recommends its functional and prodecural principles to users. 
+
 The first step is to go into /home/Documents in your directory.
 ```shell
 cd ~/Documents/
@@ -29,6 +35,9 @@ python3 <file-name>.py
 ```
 
 ## Swift
+
+In terms of Swift, I am mostly focused on general programming concepts. I hope that this will demonstrate my 
+ability to interpret language syntax and my ability to implement a language in basic applications. 
 
 The first step is to go into /home/Documents in your directory.
 ```shell
