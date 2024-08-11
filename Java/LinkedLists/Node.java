@@ -7,7 +7,8 @@ package Java.LinkedLists;
  */
 public class Node<T> 
 {
-    private Node<T> link;
+    private Node<T> prevLink;
+    private Node<T> nextLink;
     private T data;
 
     /**
@@ -16,7 +17,8 @@ public class Node<T>
     public Node() 
     {
         this.data = null;
-        this.link = null;
+        this.prevLink = null;
+        this.nextLink = null;
     }
 
     /**
@@ -26,7 +28,8 @@ public class Node<T>
     public Node(T data) 
     {
         this.data = data;
-        this.link = null;
+        this.prevLink = null;
+        this.nextLink = null;
     }
 
     /**
@@ -48,18 +51,35 @@ public class Node<T>
     
     /**
      * @param link Generic node that comes after node calling method
-     * This method will set the link to the next generic Node. 
+     * This method will set the next link to the next generic Node. 
      */
-    public void setLink(Node<T> link) 
+    public void setNextLink(Node<T> nextLink) 
     {
-        this.link = link;
+        this.nextLink = nextLink;
     }
 
     /**
      * @return This method returns the link to the next generic Node. 
      */
-    public Node<T> getLink() 
+    public Node<T> getNextLink() 
     {
-        return this.link;
+        return this.nextLink;
+    }
+
+    /**
+     * @param link Generic node that comes before node calling method
+     * This method will set the previous link to the previous generic Node. 
+     */
+    public void setPrevLink(Node<T> prevLink) 
+    {
+        this.prevLink = prevLink;
+    }
+
+    /**
+     * @return This method returns the link to the previous generic Node. 
+     */
+    public Node<T> getPrevLink() 
+    {
+        return this.prevLink;
     }
 }

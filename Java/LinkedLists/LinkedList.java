@@ -10,6 +10,27 @@ public class LinkedList<T>
     private Node<T> head;
 
     /**
+     * @return This method returns the string representation of the generic 
+     * LinkedList object. 
+     */
+    public String toString() 
+    {
+        Node<T> cursor = head;
+        String s = "<";
+        while (cursor != null) 
+        {
+            s += cursor.getData();
+            if (cursor.getNextLink() != null) 
+            {
+                s += ", ";
+            }
+            cursor = cursor.getNextLink();
+        }
+        s += ">";
+        return s;
+    }
+
+    /**
      * This no-arg constructor allows us to initialize a generic LinkedList
      * object. 
      */
@@ -42,7 +63,7 @@ public class LinkedList<T>
         }
         else 
         {
-            newHead.setLink(head);
+            newHead.setNextLink(head);
             head = newHead;
         }
     }
@@ -61,11 +82,11 @@ public class LinkedList<T>
         }
         else 
         {
-            while (tail.getLink() != null) 
+            while (tail.getNextLink() != null) 
             {
-                tail = tail.getLink();
+                tail = tail.getNextLink();
             }
-            tail.setLink(new Node<T>(data));
+            tail.setNextLink(new Node<T>(data));
         }
     }
 
@@ -80,27 +101,6 @@ public class LinkedList<T>
         {
             return;
         }
-        head = head.getLink();
-    }
-
-    /**
-     * @return This method returns the string representation of the generic 
-     * LinkedList object. 
-     */
-    public String toString() 
-    {
-        Node<T> cursor = head;
-        String s = "<";
-        while (cursor != null) 
-        {
-            s += cursor.getData();
-            if (cursor.getLink() != null) 
-            {
-                s += ", ";
-            }
-            cursor = cursor.getLink();
-        }
-        s += ">";
-        return s;
+        head = head.getNextLink();
     }
 }
