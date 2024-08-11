@@ -33,6 +33,10 @@ public class Node<T>
     }
 
     /**
+     * @param data
+     */
+
+    /**
      * @param data Data the user wants set in the node
      * This method will set the data for the generic Node that calls it. 
      */
