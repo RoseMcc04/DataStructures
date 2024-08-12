@@ -94,13 +94,24 @@ public class LinkedList<T>
      * This method removes the head of the generic LinkedList object and 
      * the next node becomes the new head. 
      */
-    public void removeHead() 
+    public T removeHead() 
     {
         Node<T> removedHead = head;
         if (removedHead == null) 
         {
-            return;
+            return null;
         }
         head = head.getNextLink();
+        return removedHead.getData();
+    }
+
+    /**
+     * @return Returns head of LinkedList
+     * @description This method returns the head node of the generic Linked 
+     * List object. 
+     */
+    public Node<T> getHead() 
+    {
+        return this.head;
     }
 }
