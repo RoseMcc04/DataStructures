@@ -22,7 +22,7 @@ public class Queue<T>
     }
 
     /**
-     * @param maxSize Desired capacity for a generic Queue object. 
+     * @param maxSize Desired capacity for a generic Queue object 
      * @Description This one-arg constructor initializes a maximum capacity 
      * for the generic Queue object. 
      */
@@ -34,26 +34,44 @@ public class Queue<T>
     }
 
     /**
-     * @param data Data added to the generic Queue object. 
+     * @param data Data added to the generic Queue object
+     * @throws Error Thrown if generic Queue is above maximum capacity
      * @Description This method takes a generic input and adds it as a node to 
      * the generic queue object.
      */
     public void enqueue(T data) 
     {
-        this.queue.addToTail(data);
-        this.size++;
+        if (this.hasSpace()) 
+        {
+            this.queue.addToTail(data);
+            this.size++;
+        }
+        else 
+        {
+            // Prevents Queue Overflow
+            throw new Error("Queue is full!");
+        }
     }
 
     /**
      * @return Data of removed Node
+     * @throws Error Thrown if generic Queue is below minimum capacity
      * @description This method removes the head of the underlying Linked List
      * of the generic Queue and returns its data. 
      */
     public T dequeue() 
     {
-        T data = this.queue.removeHead();
-        this.size--;
-        return data;
+        if (!this.isEmpty()) 
+        {
+            T data = this.queue.removeHead();
+            this.size--;
+            return data;
+        }
+        else 
+        {
+            // Prevents Queue Underflow
+            throw new Error("Queue is empty!");
+        }
     }
 
     /**
@@ -63,7 +81,14 @@ public class Queue<T>
      */
     public T peek() 
     {
-        return this.queue.getHead().getData();
+        if (this.isEmpty()) 
+        {
+            return null;
+        }
+        else 
+        {
+            return this.queue.getHead().getData();
+        }
     }
 
     /**
