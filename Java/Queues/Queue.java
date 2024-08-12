@@ -73,14 +73,7 @@ public class Queue<T>
      */
     public boolean hasSpace() 
     {
-        if (this.size < this.maxSize) 
-        {
-            return true;
-        }
-        else 
-        {
-            return false;
-        }
+        return this.size < this.maxSize;
     }
 
     /**
