@@ -28,8 +28,8 @@ public class Sorts
      * @return Returns a sorted array
      * @description The inputted array (unsorted) will be sorted with a 
      * quadratic sort, and then will be returned as a sorted array.
-     * @TimeComplexity: O(n^2)
-     * @SpaceComplexity: O(1) 
+     * @TimeComplexity O(n^2)
+     * @SpaceComplexity O(1) 
      */
     public int[] bubbleSort(int[] arr) 
     {
@@ -72,13 +72,17 @@ public class Sorts
         // Iterates while both arrays have indeces less than their length
         while (leftPos < left.length && rightPos < right.length) 
         {
+            // Simultaneously iterates through elements of both left and right 
+            // arrays
             if (left[leftPos] < right[rightPos]) 
             {
+                // Earlier position in array assigned
                 merged[cursor] = left[leftPos];
                 leftPos++;
             }
             else 
             {
+                // Earlier position in array assigned
                 merged[cursor] = right[rightPos];
                 rightPos++;
             }
@@ -108,7 +112,69 @@ public class Sorts
         // Creating left and right arrays
         int[] left = Arrays.copyOfRange(arr, 0, mid);
         int[] right = Arrays.copyOfRange(arr, mid, arr.length);
-        // Recursive call to divide up arrays more
+        // Recursive call to divide up arrays more and sort them, then they 
+        // will merge due to the merge() method
         return merge(mergeSort(left), mergeSort(right));
+    }
+
+    /**
+     * @param arr Array desired to be worked on
+     * @param leftPointer Left position to start at
+     * @param rightPointer Right position to start at
+     * @return Returns an integer value
+     * @description This method paritions the inputted array and uses the 
+     * left and right pointers to look up a pivot value. It iterates through
+     * the selected range and determines the pointer values based on iterating
+     * toward the pivot position. 
+     */
+    public int partition(int[] arr, int leftPointer, int rightPointer) 
+    {
+        int pivot = arr[Math.floorDiv(leftPointer + rightPointer, 2)];
+        while (leftPointer > rightPointer) 
+        {
+            while (arr[leftPointer] < pivot) 
+            {
+                leftPointer++;
+            }
+            while (arr[rightPointer] > pivot) 
+            {
+                rightPointer--;
+            }
+            if (leftPointer < rightPointer) 
+            {
+                swap(arr, leftPointer, rightPointer);
+            }
+        }
+        return leftPointer;
+    }
+
+    /**
+     * @param arr Array to be sorted
+     * @param start Starting index of desired sort
+     * @param end Ending index of desired sort
+     * @return Returns sorted array from QuickSort
+     * @description This method inputs an array and then sorts it using teh 
+     * Quick Sort algorithm. 
+     * @TimeComplexity-BestCase O(n*log(n))
+     * @TimeComplexity-WorstCase O(n^2)
+     * @SpaceComplexity-BestCase O(1)
+     * @SpaceComplexity-AverageCase O(log(n))
+     * @SpaceComplexity-WorstCase O(n)
+     */
+    public int[] quickSort(int[] arr, int start, int end) 
+    {
+        if (end > start) 
+        {
+            int partition = partition(arr, start, end);
+            if (start < partition) 
+            {
+                quickSort(arr, start, partition);
+            }
+            if (partition + 1 < end) 
+            {
+                quickSort(arr, partition + 1, end);
+            }
+        }
+        return arr;
     }
 }
