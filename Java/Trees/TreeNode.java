@@ -50,4 +50,14 @@ public class TreeNode
     {
         return this.children;
     }
+
+    /**
+     * @return Returns data of a Tree Node object
+     * @description This method returns the data of a Tree Node object in a 
+     * tree. 
+     */
+    public Object getData() 
+    {
+        return this.data;
+    }
 }
