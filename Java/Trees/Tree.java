@@ -46,4 +46,15 @@ public class Tree
             print(child, level + 1);
         }
     }
+    // Depth-First Traversal
+
+    /*
+     * Display the current tree node's data
+     * For each child in children
+     *     Call DFS traversal recursively on child
+     * 
+     * Definition: Technique that visits the first child in the children list
+     *             and that node's children recursively before visiting all the
+     *             first child's siblings and their children recursively. 
+     */
 }
