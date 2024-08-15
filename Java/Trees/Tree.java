@@ -46,10 +46,4 @@ public class Tree
             print(child, level + 1);
         }
     }
-
-    // Depth-First Traversal
-
-    /*
-     * 
-     */
 }
